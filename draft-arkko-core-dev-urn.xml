@@ -155,6 +155,10 @@ recommended for constrained environments.</t>
 <t>Future device identifier types can extend the device device URN
 type defined here, or define their own URNs.</t>
 
+<t>Note that long-term stable unique identifiers are problematic for
+privacy reasons and should be used with care or avoided as described
+in <xref target="RFC7721"/>.</t>
+
 <t>The rest of this memo is organized as follows. <xref
 target="devurn"/> defines the "DEV" URN type, and <xref
 target="subtypes"/> defines subtypes for IEEE MAC-48, EUI-48 and
@@ -355,6 +359,16 @@ specifications have already said about the identifiers.</t>
 <t>Other devices in the same network may or may not be able to
 identify the device. For instance, on Ethernet network, the MAC
 address of a device is visible to all other devices.</t>
+
+<t>The URNs generated according to the rules defined in this document
+result in long-term stable unique identifiers for the devices. Such
+identifiers may have privacy and security implications because they
+may enable correlating information about a specific device over a long
+period of time, location tracking, and device specific vulnerability
+exploitation <xref target="RFC7721"/>. Also, usually there is no easy
+way to change the identifier. Therefore these identifiers need to be
+used with care and especially care should be taken avoid leaking them
+outside of the system that is intended to use the identifiers. </t>
 
 </section>
 
