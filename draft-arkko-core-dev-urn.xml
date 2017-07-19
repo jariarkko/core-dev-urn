@@ -17,8 +17,6 @@
 <!ENTITY RFC7254 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7254.xml">
 <!ENTITY RFC6920 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6920.xml">
 <!ENTITY I-D.ietf-core-senml SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-core-senml.xml">
-<!ENTITY I-D.arkko-core-sleepy-sensors SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.arkko-core-sleepy-sensors.xml">
-<!ENTITY I-D.arkko-core-security-arch SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.arkko-core-security-arch.xml">
 <!ENTITY I-D.atarius-dispatch-meid-urn SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.atarius-dispatch-meid-urn.xml">
 ]>
 
@@ -115,9 +113,7 @@ hardware device identifiers. A general representation of device
 identity can be useful in many applications, such as in sensor data
 streams and storage, or equipment inventories
 <xref target="RFC7252"/>,
-<xref target="I-D.ietf-core-senml"/>,
-<xref target="I-D.arkko-core-sleepy-sensors"/>
-<xref target="I-D.arkko-core-security-arch"/>. A URN-based
+<xref target="I-D.ietf-core-senml"/>. A URN-based
 representation can be easily passed along in any application that
 needs the information, as it fits in protocols mechanisms that are
 designed to carry URNs <xref target="RFC2616"/>, <xref
@@ -456,8 +452,6 @@ Review or IESG Approval <xref target="RFC5226"/>.</t>
   &RFC7252;
   &I-D.ietf-core-senml;
   &RFC6920;
-  &I-D.arkko-core-sleepy-sensors;
-  &I-D.arkko-core-security-arch;
   &RFC7254;
   &I-D.atarius-dispatch-meid-urn;
 
