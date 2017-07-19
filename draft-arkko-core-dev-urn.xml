@@ -370,8 +370,13 @@ outside of the system that is intended to use the identifiers. </t>
 
 <section anchor="iana" title="IANA Considerations">
 
+<t>This document requests the registration of a new URN namespace
+for "DEV", as described in <xref target="devurn"/>.</t>
+	
 <t>Additional subtypes for DEV URNs can be defined through IETF
 Review or IESG Approval <xref target="RFC5226"/>.</t>
+	
+<t>TBD... need text on when such allocations are appropriate.</t>
 
 </section>
 
