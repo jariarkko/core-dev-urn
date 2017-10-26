@@ -21,7 +21,7 @@
 ]>
 
 <rfc ipr="trust200902"
-     docName="draft-arkko-core-dev-urn-05"
+     docName="draft-arkko-core-dev-urn-06"
      category="info">
 
 <?rfc toc="yes"?> <?rfc symrefs="yes"?> <?rfc autobreaks="yes"?>
@@ -81,7 +81,7 @@
           </address>
         </author>
 
-<date month="July" year="2017" />
+<date month="October" year="2017" />
 
 <keyword>URN</keyword>
 <keyword>device identifier</keyword>
