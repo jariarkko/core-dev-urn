@@ -200,7 +200,8 @@ follows:</t>
   owbody = "ow:" hexstring
   otherbody = subtype ":" identifier
   subtype = ALPHA *(DIGIT / ALPHA)
-  identifier = 1*unreserved
+  identifier = 1*unreservednou
+  unreservednou = ALPHA / DIGIT / "-" / "." / "~"
   componentpart = [ "_" component [ componentpart ]]
   component = *1(DIGIT / ALPHA)
   hexstring = hexbyte /
