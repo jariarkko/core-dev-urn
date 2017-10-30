@@ -21,7 +21,7 @@
 ]>
 
 <rfc ipr="trust200902"
-     docName="draft-arkko-core-dev-urn-06"
+     docName="draft-arkko-core-dev-urn-05"
      category="info">
 
 <?rfc toc="yes"?> <?rfc symrefs="yes"?> <?rfc autobreaks="yes"?>
@@ -201,7 +201,7 @@ follows:</t>
   otherbody = subtype ":" identifier
   subtype = ALPHA *(DIGIT / ALPHA)
   identifier = 1*unreserved
-  componentpart = [ ";" component [ componentpart ]]
+  componentpart = [ "_" component [ componentpart ]]
   component = *1(DIGIT / ALPHA)
   hexstring = hexbyte /
               hexbyte hexstring
@@ -463,6 +463,15 @@ Review or IESG Approval <xref target="RFC5226"/>.</t>
 </references>
 
 <section title="Changes from Previous Version">
+
+<t>Version -05 made a change to the delimiter for parameters within
+a DEV URN. Given discussions on allowed character sets in SenML 
+<xref target="I-D.ietf-core-senml"/>, we would like to suggest that
+the "_" character be used instead of ";", to avoid the need to translate
+DEV URNs in SenML-formatted communications or files. However, this
+reverses the earlier decision to not use unreserved characters.
+This also means that device IDs cannot use "_" characters, and have
+to employ other characters instead. Feedback on this decision is sought.</t>
 
 <t>Version -04 is a refresh, as the need and interest for this
 specification has re-emerged. And the editing author has emerged back
