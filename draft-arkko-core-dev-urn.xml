@@ -393,7 +393,16 @@ for "DEV", as described in <xref target="devurn"/>.</t>
 <t>Additional subtypes for DEV URNs can be defined through IETF
 Review or IESG Approval <xref target="RFC5226"/>.</t>
 	
-<t>TBD... need text on when such allocations are appropriate.</t>
+<t>Such allocations are appropriate when there is a new namespace
+of some type of device identifiers, defined in stable fashion and with
+a publicly available specification that can be pointed to.</t>
+
+<t>Note that the organisation (<xref target="org"/>) device
+identifiers
+can also be used in some cases, at least as a temporary measure. It is
+preferrable, however, that long-term usage of a broadly employed
+device identifier be registered with IETF rather than used through
+the organisation device identifier type.</t>.
 
 </section>
 
@@ -502,6 +511,10 @@ vs. other possible organisation identifiers would be very welcome.</t>
 
 <t>Version -05 also added some discussion of privacy concerns around
 long-term stable identifiers.</t>
+
+<t>Finally, version -05 clarified the situations when new allocations
+within
+the registry of possible device identifier subtypes is appropriate.</t>.
 
 <t>Version -04 is a refresh, as the need and interest for this
 specification has re-emerged. And the editing author has emerged back
