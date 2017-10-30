@@ -2,7 +2,7 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
-<!ENTITY RFC2141 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2141.xml">
+<!ENTITY RFC8141 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8141.xml">
 <!ENTITY RFC2578 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2578.xml">
 <!ENTITY RFC3406 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3406.xml">
 <!ENTITY RFC3986 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3986.xml">
@@ -111,7 +111,7 @@ needs the information.</t>
 <section anchor="intro" title="Introduction">
 
 <t>This memo describes a new Uniform Resource Name (URN)
-<xref target="RFC2141"/> <xref target="RFC3406"/> namespace for
+<xref target="RFC8141"/> <xref target="RFC3406"/> namespace for
 hardware device identifiers. A general representation of device
 identity can be useful in many applications, such as in sensor data
 streams and storage, or equipment inventories
@@ -413,7 +413,7 @@ the organisation device identifier type.</t>
 <references title="Normative References">
   
   &RFC2119;
-  &RFC2141;
+  &RFC8141;
   &RFC2578;
   &RFC3406;
   &RFC3986;
