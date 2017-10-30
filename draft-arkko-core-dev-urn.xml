@@ -195,13 +195,15 @@ follows:</t>
 <figure>
 <artwork>
   devurn = "urn:dev:" body componentpart
-  body = macbody / owbody / otherbody
+  body = macbody / owbody / orgbody / otherbody
   macbody = "mac:" hexstring
   owbody = "ow:" hexstring
+  orgbody = "dn:" number ":" identifier
   otherbody = subtype ":" identifier
   subtype = ALPHA *(DIGIT / ALPHA)
   identifier = 1*unreservednou
   unreservednou = ALPHA / DIGIT / "-" / "." / "~"
+  fqdn =  
   componentpart = [ "_" component [ componentpart ]]
   component = *1(DIGIT / ALPHA)
   hexstring = hexbyte /
@@ -209,6 +211,7 @@ follows:</t>
   hexbyte = hexdigit hexdigit
   hexdigit = DIGIT / hexletter
   hexletter = "a" / "b" / "c" / "d" / "e" / "f"
+  number = *1DIGIT
 </artwork>
 </figure>
 
@@ -314,6 +317,13 @@ with the manufacturers.</t>
 
 </section>
 
+<section anchor="org" title="Organization-Defined Identifiers">
+  <t>Device identifiers that have only a meaning within an organisation
+  can also be used to represent vendor-specific or experimental identifiers
+  or identifiers designed for use within the context of an organisation.
+  Organisations are identified by the Private Enterprise Number <xref target="RFC2578"/>.</t>
+</section>
+
 </section>
 
 <section anchor="ex" title="Examples">
@@ -335,6 +345,10 @@ identifiers:
 
     urn:dev:ow:264437f5000000ed;temperature # The laundry sensor's
                                             # temperature part
+	
+    urn:dev:org:32473:123456		    # Device 123456 in
+	                                    # the RFC 5612 example
+	                                    # organisation
 
 </artwork>
 </figure>
@@ -389,6 +403,7 @@ Review or IESG Approval <xref target="RFC5226"/>.</t>
   
   &RFC2119;
   &RFC2141;
+  &RFC2578;
   &RFC3406;
   &RFC3986;
   &RFC5226;
@@ -430,6 +445,7 @@ Review or IESG Approval <xref target="RFC5226"/>.</t>
   &RFC3972;
   &RFC4122;
   &RFC4627;
+  &RFC5612;
 
   <reference anchor='W3C.REC-xml-19980210'
 	     target='http://www.w3.org/TR/1998/REC-xml-19980210'>
@@ -474,6 +490,13 @@ reverses the earlier decision to not use unreserved characters.
 This also means that device IDs cannot use "_" characters, and have
 to employ other characters instead. Feedback on this decision is sought.</t>
 
+<t>Version -05 also introduced local or organisation-specific device
+identifiers. Organisations are identified by their PEN number (although
+we considered FQDNs as a potential alternative. The authors belive an
+organisation-specific device identifier type will make experiments and
+local use easier, but feedback on this point and the choice of PEN numbers
+vs. other possible organisation identifiers would be very welcome.</t>
+	
 <t>Version -04 is a refresh, as the need and interest for this
 specification has re-emerged. And the editing author has emerged back
 to actual engineering from the depths of IETF administration.</t>
