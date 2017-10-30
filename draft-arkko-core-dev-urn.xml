@@ -381,7 +381,7 @@ period of time, location tracking, and device specific vulnerability
 exploitation <xref target="RFC7721"/>. Also, usually there is no easy
 way to change the identifier. Therefore these identifiers need to be
 used with care and especially care should be taken avoid leaking them
-outside of the system that is intended to use the identifiers. </t>
+outside of the system that is intended to use the identifiers.</t>
 
 </section>
 
@@ -402,7 +402,7 @@ identifiers
 can also be used in some cases, at least as a temporary measure. It is
 preferrable, however, that long-term usage of a broadly employed
 device identifier be registered with IETF rather than used through
-the organisation device identifier type.</t>.
+the organisation device identifier type.</t>
 
 </section>
 
@@ -514,7 +514,7 @@ long-term stable identifiers.</t>
 
 <t>Finally, version -05 clarified the situations when new allocations
 within
-the registry of possible device identifier subtypes is appropriate.</t>.
+the registry of possible device identifier subtypes is appropriate.</t>
 
 <t>Version -04 is a refresh, as the need and interest for this
 specification has re-emerged. And the editing author has emerged back
