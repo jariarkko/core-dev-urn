@@ -342,10 +342,10 @@ identifiers:
                                             # sensor in Jari's
                                             # kitchen
 
-    urn:dev:ow:264437f5000000ed;humidity    # The laundry sensor's
+    urn:dev:ow:264437f5000000ed_humidity    # The laundry sensor's
                                             # humidity part
 
-    urn:dev:ow:264437f5000000ed;temperature # The laundry sensor's
+    urn:dev:ow:264437f5000000ed_temperature # The laundry sensor's
                                             # temperature part
 	
     urn:dev:org:32473:123456		    # Device 123456 in
