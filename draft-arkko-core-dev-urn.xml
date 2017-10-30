@@ -15,6 +15,7 @@
 <!ENTITY RFC4122 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4122.xml">
 <!ENTITY RFC4627 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4627.xml">
 <!ENTITY RFC5612 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5612.xml">
+<!ENTITY RFC7721 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7721.xml">
 <!ENTITY RFC7252 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7252.xml">
 <!ENTITY RFC7254 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7254.xml">
 <!ENTITY RFC6920 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6920.xml">
@@ -447,7 +448,8 @@ Review or IESG Approval <xref target="RFC5226"/>.</t>
   &RFC3972;
   &RFC4122;
   &RFC4627;
-  &RFC5612;
+  &RFC5612; 
+  &RFC7721; 
 
   <reference anchor='W3C.REC-xml-19980210'
 	     target='http://www.w3.org/TR/1998/REC-xml-19980210'>
@@ -498,7 +500,10 @@ we considered FQDNs as a potential alternative. The authors belive an
 organisation-specific device identifier type will make experiments and
 local use easier, but feedback on this point and the choice of PEN numbers
 vs. other possible organisation identifiers would be very welcome.</t>
-	
+
+<t>Version -05 also added some discussion of privacy concerns around
+long-term stable identifiers.</t>
+
 <t>Version -04 is a refresh, as the need and interest for this
 specification has re-emerged. And the editing author has emerged back
 to actual engineering from the depths of IETF administration.</t>
