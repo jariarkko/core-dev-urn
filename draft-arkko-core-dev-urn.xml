@@ -204,9 +204,8 @@ follows:</t>
   orgbody = "dn:" number ":" identifier
   otherbody = subtype ":" identifier
   subtype = ALPHA *(DIGIT / ALPHA)
-  identifier = 1*unreservednou
-  unreservednou = ALPHA / DIGIT / "-" / "." / "~"
-  fqdn =  
+  identifier = 1*unreservednout
+  unreservednout = ALPHA / DIGIT / "-" / "."
   componentpart = [ "_" component [ componentpart ]]
   component = *1(DIGIT / ALPHA)
   hexstring = hexbyte /
