@@ -192,7 +192,7 @@ group. Should the working group cease to exist, discussion should be
 directed to the general IETF discussion forums or the IESG.</t>
 
 <t>Declaration of syntactic structure: The identifier is expressed in
-ASCII (UTF-8) characters and has a hierarchical structure as
+ASCII characters and has a hierarchical structure as
 follows:</t>
 
 <figure>
