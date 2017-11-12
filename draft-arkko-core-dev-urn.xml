@@ -201,7 +201,7 @@ follows:</t>
   body = macbody / owbody / orgbody / otherbody
   macbody = "mac:" hexstring
   owbody = "ow:" hexstring
-  orgbody = "dn:" number ":" identifier
+  orgbody = "org:" number ":" identifier
   otherbody = subtype ":" identifier
   subtype = ALPHA *(DIGIT / ALPHA)
   identifier = 1*unreservednout
