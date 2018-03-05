@@ -2,7 +2,7 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
-<!ENTITY RFC2141 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2141.xml">
+<!ENTITY RFC8141 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8141.xml">
 <!ENTITY RFC2578 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2578.xml">
 <!ENTITY RFC3406 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3406.xml">
 <!ENTITY RFC3986 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3986.xml">
@@ -24,7 +24,7 @@
 ]>
 
 <rfc ipr="trust200902"
-     docName="draft-arkko-core-dev-urn-05"
+     docName="draft-arkko-core-dev-urn-06"
      category="info">
 
 <?rfc toc="yes"?> <?rfc symrefs="yes"?> <?rfc autobreaks="yes"?>
@@ -84,7 +84,7 @@
           </address>
         </author>
 
-<date month="October" year="2017" />
+<date month="March" year="2018" />
 
 <keyword>URN</keyword>
 <keyword>device identifier</keyword>
@@ -111,7 +111,7 @@ needs the information.</t>
 <section anchor="intro" title="Introduction">
 
 <t>This memo describes a new Uniform Resource Name (URN)
-<xref target="RFC2141"/> <xref target="RFC3406"/> namespace for
+<xref target="RFC8141"/> <xref target="RFC3406"/> namespace for
 hardware device identifiers. A general representation of device
 identity can be useful in many applications, such as in sensor data
 streams and storage, or equipment inventories
@@ -192,7 +192,7 @@ group. Should the working group cease to exist, discussion should be
 directed to the general IETF discussion forums or the IESG.</t>
 
 <t>Declaration of syntactic structure: The identifier is expressed in
-ASCII (UTF-8) characters and has a hierarchical structure as
+ASCII characters and has a hierarchical structure as
 follows:</t>
 
 <figure>
@@ -201,7 +201,7 @@ follows:</t>
   body = macbody / owbody / orgbody / otherbody
   macbody = "mac:" hexstring
   owbody = "ow:" hexstring
-  orgbody = "dn:" number ":" identifier
+  orgbody = "org:" number ":" identifier
   otherbody = subtype ":" identifier
   subtype = ALPHA *(DIGIT / ALPHA)
   identifier = 1*unreservednout
@@ -413,7 +413,7 @@ the organisation device identifier type.</t>
 <references title="Normative References">
   
   &RFC2119;
-  &RFC2141;
+  &RFC8141;
   &RFC2578;
   &RFC3406;
   &RFC3986;
