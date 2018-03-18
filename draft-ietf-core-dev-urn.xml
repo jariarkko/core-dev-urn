@@ -18,6 +18,7 @@
 <!ENTITY RFC7721 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7721.xml">
 <!ENTITY RFC7252 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7252.xml">
 <!ENTITY RFC7254 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7254.xml">
+<!ENTITY RFC8259 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8259.xml">
 <!ENTITY RFC6920 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6920.xml">
 <!ENTITY I-D.ietf-core-senml SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-core-senml.xml">
 <!ENTITY I-D.atarius-dispatch-meid-urn SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.atarius-dispatch-meid-urn.xml">
