@@ -24,7 +24,7 @@
 ]>
 
 <rfc ipr="trust200902"
-     docName="draft-ietf-core-dev-urn-00"
+     docName="draft-ietf-core-dev-urn-01"
      category="info">
 
 <?rfc toc="yes"?> <?rfc symrefs="yes"?> <?rfc autobreaks="yes"?>
@@ -96,107 +96,143 @@
 
 <abstract>
 
-<t>This memo describes a new Uniform Resource Name (URN) namespace for
-hardware device identifiers. A general representation of device
-identity can be useful in many applications, such as in sensor data
-streams and storage, or equipment inventories. A URN-based
-representation can be easily passed along in any application that
-needs the information.</t>
-
+  <t>This memo describes a new Uniform Resource Name (URN) namespace for
+  hardware device identifiers. A general representation of device
+  identity can be useful in many applications, such as in sensor data
+  streams and storage, or equipment inventories. A URN-based
+  representation can be easily passed along in any application that
+  needs the information.</t>
+  
 </abstract>
 
 </front>
 <middle>
 
-<section anchor="intro" title="Introduction">
+  <section anchor="intro" title="Introduction">
+    
+    <t>This memo describes a new Uniform Resource Name (URN) <xref
+    target="RFC8141"/> <xref target="RFC3406"/> namespace for hardware
+    device identifiers. A general representation of device identity
+    can be useful in many applications, such as in sensor data streams
+    and storage, or equipment inventories <xref target="RFC7252"/>,
+    <xref target="I-D.ietf-core-senml"/>. A URN-based representation
+    can be easily passed along in any application that needs the
+    information, as it fits in protocols mechanisms that are designed
+    to carry URNs <xref target="RFC2616"/>, <xref target="RFC3261"/>,
+    <xref target="RFC7252"/>. Finally, URNs can also be easily carried
+    and stored in formats such as XML <xref
+    target="W3C.REC-xml-19980210"/> or JSON <xref
+    target="I-D.ietf-core-senml"/> <xref target="RFC4627"/>. Using
+    URNs in these formats is often preferable as they are universally
+    recognized, self-describing, and therefore avoid the need for
+    agreeing to interpret an octet string as a specific form of a MAC
+    address, for instance.</t>
+    
+    <t>This memo defines identity URN types for situations where no
+    such convenient type already exist. For instance, <xref
+    target="RFC6920"/> defines cryptographic identifiers, <xref
+    target="RFC7254"/> defines International Mobile station Equipment
+    Identity (IMEI) identifiers for use with 3GPP cellular systems,
+    and <xref target="I-D.atarius-dispatch-meid-urn"/> defines Mobile
+    Equipment Identity (MEID) identifiers for use with 3GPP2 cellular
+    systems. Those URN types should be employed when such identities
+    are transported; this memo does not redefine these identifiers in
+    any way.</t>
 
-<t>This memo describes a new Uniform Resource Name (URN)
-<xref target="RFC8141"/> <xref target="RFC3406"/> namespace for
-hardware device identifiers. A general representation of device
-identity can be useful in many applications, such as in sensor data
-streams and storage, or equipment inventories
-<xref target="RFC7252"/>,
-<xref target="I-D.ietf-core-senml"/>. A URN-based
-representation can be easily passed along in any application that
-needs the information, as it fits in protocols mechanisms that are
-designed to carry URNs <xref target="RFC2616"/>, <xref
-target="RFC3261"/>, <xref target="RFC7252"/>. Finally, URNs
-can also be easily carried and stored in formats such as XML <xref
-target="W3C.REC-xml-19980210"/> or JSON <xref
-target="I-D.ietf-core-senml"/> <xref target="RFC4627"/>. Using URNs in
-these formats is often preferable as they are universally recognized,
-self-describing, and therefore avoid the need for agreeing to
-interpret an octet string as a specific form of a MAC address, for
-instance.</t>
+    <t>Universally Unique IDentifier (UUID) URNs <xref
+    target="RFC4122"/> are another alternative way for representing
+    device identifiers, and already support MAC addresses as one of
+    type of an identifier. However, UUIDs can be inconvenient in
+    environments where it is important that the identifiers are as
+    simple as possible and where additional requirements on stable
+    storage, real-time clocks, and identifier length can be
+    prohibitive. UUID-based identifiers are recommended for all
+    general purpose uses when MAC addresses are available as
+    identifiers. The device URN defined in this memo is recommended
+    for constrained environments.</t>
 
-<t>This memo defines identity URN types for situations where no such
-convenient type already exist. For instance, <xref
-target="RFC6920"/> defines cryptographic identifiers,
-<xref target="RFC7254"/> defines International
-Mobile station Equipment Identity (IMEI) identifiers for use with 3GPP
-cellular systems, and <xref target="I-D.atarius-dispatch-meid-urn"/>
-defines Mobile Equipment Identity (MEID) identifiers for use with
-3GPP2 cellular systems. Those URN types should be employed when such
-identities are transported; this memo does not redefine these
-identifiers in any way.</t>
+    <t>Future device identifier types can extend the device device URN
+    type defined here, or define their own URNs.</t>
 
-<t>Universally Unique IDentifier (UUID) URNs <xref target="RFC4122"/>
-are another alternative way for representing device identifiers, and
-already support MAC addresses as one of type of an
-identifier. However, UUIDs can be inconvenient in environments where
-it is important that the identifiers are as simple as possible and
-where additional requirements on stable storage, real-time clocks, and
-identifier length can be prohibitive. UUID-based identifiers are
-recommended for all general purpose uses when MAC addresses are
-available as identifiers. The device URN defined in this memo is
-recommended for constrained environments.</t>
+    <t>Note that long-term stable unique identifiers are problematic
+    for privacy reasons and should be used with care or avoided as
+    described in <xref target="RFC7721"/>.</t>
 
-<t>Future device identifier types can extend the device device URN
-type defined here, or define their own URNs.</t>
+    <t>The rest of this memo is organized as follows. <xref
+    target="devurn"/> defines the "DEV" URN type, and <xref
+    target="subtypes"/> defines subtypes for IEEE MAC-48, EUI-48 and
+    EUI-64 addresses and 1-wire device identifiers.  <xref
+    target="ex"/> gives examples. <xref target="sec"/> discusses the
+    security considerations of the new URN type. Finally, <xref
+    target="iana"/> specifies the IANA registration for the new URN
+    type and sets requirements for subtype allocations within this
+    type.</t>
 
-<t>Note that long-term stable unique identifiers are problematic for
-privacy reasons and should be used with care or avoided as described
-in <xref target="RFC7721"/>.</t>
+  </section>
 
-<t>The rest of this memo is organized as follows. <xref
-target="devurn"/> defines the "DEV" URN type, and <xref
-target="subtypes"/> defines subtypes for IEEE MAC-48, EUI-48 and
-EUI-64 addresses and 1-wire device identifiers.  <xref target="ex"/>
-gives examples. <xref target="sec"/> discusses the security
-considerations of the new URN type. Finally, <xref target="iana"/>
-specifies the IANA registration for the new URN type and sets
-requirements for subtype allocations within this type.</t>
+  <section anchor="kwd" title='Requirements language'>
+    
+    <t>In this document, the key words "MAY", "MUST, "MUST NOT", "OPTIONAL",
+    "RECOMMENDED", "SHOULD", and "SHOULD NOT", are to be interpreted as
+    described in <xref target='RFC2119' />.</t>
+    
+  </section>
+  
+  <section anchor="devurn" title="DEV URN Definition">
+    
+      <t>Namespace Identifier: "dev" requested</t>
+      
+      <t>Version: 1</t>
+      
+      <t>Date: 2018-03-19</t>
+      
+      <t>Registration Information: This is the first registration of
+      this namespace, 2018-03-19.</t>
+      
+      <t>Registrant: IETF and the CORE working group. Should the working
+      group cease to exist, discussion should be directed to the general
+      IETF discussion forums or the IESG.</t>
+      
+      <section title="Purpose">
+	
+	<t>Purpose: The DEV URNs identify devices with device-specific
+	identifiers such as network card hardware addresses. These URNs may be
+	used in any relevant networks that benefit from the ability to refer
+	to these identifiers in the form of URNs; DEV URN is global in scope.
+	<vspace blankLines="1"/>
+	
+	Some typical applications include equipment inventories and smart
+	object systems.<vspace blankLines="1"/>
+	
+	DEV URNs can be used in various ways in applications, software
+	systems, and network components, in tasks ranging from discovery (for
+	instance when discovering 1-wire network devices or detecting
+	MAC-addressable devices on a LAN) to intrusion detection systems and
+	and simple catalogues of system information.<vspace blankLines="1"/>
+	
+	While it is possible to implement resolution systems for specific
+	applications or network locations, DEV URNs are typically not used in
+	a way that requires resolution beyond direct observation of the
+	relevant identity fields in local link communication. However, it is
+	often useful to be able to pass device identity information in generic
+	URN fields in databases or protocol fields, which makes the use of
+	URNs for this purpose convenient.<vspace blankLines="1"/>
+	
+	The DEV URN name space complements existing name spaces such as those
+	involving IMEI or UUID identifiers. DEV URNs are expeced to be a part
+	of the IETF-provided basic URN types, covering identifiers that have
+	previously not been possible to use in URNs.</t>
+	
+      </section>
+      
+      <section title="Syntax">
+	
+	<t>Syntax: The identifier is expressed in
+	ASCII characters and has a hierarchical structure as
+	follows:</t>
 
-</section>
-
-<section anchor="kwd" title='Requirements language'>
-
-   <t>In this document, the key words "MAY", "MUST, "MUST NOT", "OPTIONAL",
-   "RECOMMENDED", "SHOULD", and "SHOULD NOT", are to be interpreted as
-   described in <xref target='RFC2119' />.</t>
-
-</section>
-
-<section anchor="devurn" title="DEV URN Definition">
-
-<t>Namespace ID: "dev" requested</t>
-
-<t>Registration Information: This is the first registration of this namespace, 2011-08-27.</t>
-
-<t>Registration version number: 1</t>
-
-<t>Registration date: 2011-08-27</t>
-
-<t>Declared registrant of the namespace: IETF and the CORE working
-group. Should the working group cease to exist, discussion should be
-directed to the general IETF discussion forums or the IESG.</t>
-
-<t>Declaration of syntactic structure: The identifier is expressed in
-ASCII characters and has a hierarchical structure as
-follows:</t>
-
-<figure>
-<artwork>
+	<figure>
+	  <artwork>
   devurn = "urn:dev:" body componentpart
   body = macbody / owbody / orgbody / otherbody
   macbody = "mac:" hexstring
@@ -214,62 +250,114 @@ follows:</t>
   hexdigit = DIGIT / hexletter
   hexletter = "a" / "b" / "c" / "d" / "e" / "f"
   number = *1DIGIT
-</artwork>
-</figure>
-
-<t>The above Augmented Backus-Naur Form (ABNF) uses the DIGIT and ALPHA rules
-defined in <xref target="RFC5234"/>, which are not repeated here. The rule for unreserved is
-defined in Section 2.3 of <xref target="RFC3986"/>.</t>
-
-<t>The device identity namespace includes three subtypes, and more  may be
-defined in the future as specified in <xref target="iana"/>.</t>
-
-<t>The optional components following the hexstring are strings depicting individual aspects of
-a device. The specific strings and their semantics are up to the designers of the device, but
-could be used to refer to specific interfaces or functions within the device.</t>
-
-<t>Relevant ancillary documentation: See <xref
-target="subtypes"/>.</t>
-
-<t>Identifier uniqueness considerations: Device identifiers are
-generally expected to be unique, barring the accidental issue of
-multiple devices with the same identifiers.</t>
-
-<t>Identifier persistence considerations: This URN type SHOULD only be
-used for persistent identifiers, such as hardware-based identifiers or
-cryptographic identifiers based on keys intended for long-term
-usage.</t>
-
-<t>Process of identifier assignment: The process for identifier
-assignment is dependent on the used subtype, and documented in the
-specific subsection under <xref target="subtypes"/>.</t>
-
-<t>Process for identifier resolution: The device identities are not
-expected to be globally resolvable. No identity resolution system is
-expected. Systems may perform local matching of identities to previously
-seen identities or configured information, however.</t>
-
-<t>Rules for Lexical Equivalence: The lexical equivalence of the DEV
-URN is defined as an exact and case sensitive string match.  Note that
-the two subtypes defined in this document use only lower case letters,
-however. Future types might use identifiers that require other
-encodings that require a more full-blown character set (such as
-BASE64), however.</t>
-
-<t>Conformance with URN Syntax: The string representation of the device
-identity URN and of the MEID sub namespace is fully compatible with
-the URN syntax.</t>
-
-<t>Validation Mechanism: Specific subtypes may be validated through
-mechanisms discussed in <xref target="subtypes"/>.</t>
-
-<t>Scope: DEV URN is global in scope.</t>
-
-</section>
-
+	  </artwork>
+	</figure>
+    
+	<t>The above Augmented Backus-Naur Form (ABNF) uses the DIGIT and
+	ALPHA rules defined in <xref target="RFC5234"/>, which are not
+	repeated here. The rule for unreserved is defined in Section 2.3 of
+	<xref target="RFC3986"/>.</t>
+	
+	<t>The device identity namespace includes three subtypes (see
+	<xref target="subtypes"/>, and more may be defined in the future as
+	specified in <xref target="iana"/>.</t>
+	
+	<t>The optional components following the hexstring are strings
+	depicting individual aspects of a device. The specific strings and
+	their semantics are up to the designers of the device, but could be
+	used to refer to specific interfaces or functions within the
+	device.</t>
+	
+	<t>There are no special character encoding rules or
+	considerations for comforming with the URN syntax, beyond
+	those applicable for URNs in general <xref target="RFC8141"/>,
+	or the context where these URNs are carried (e.g., inside JSON
+	<xref target="RFC8259"/> or SenML <xref
+	target="I-D.ietf-core-senml"/>).</t>
+	
+	<t>The lexical equivalence of the DEV URNs is defined as an exact and
+	case sensitive string match.  Note that the two subtypes defined in
+	this document use only lower case letters, however. Future types might
+	use identifiers that require other encodings that require a more
+	full-blown character set (such as BASE64), however.</t>
+	
+	<t>DEV URNs do not use r-, q-, or f-components.</t>
+	
+	<t>Specific subtypes of DEV URNs may be validated through
+	mechanisms discussed in <xref target="subtypes"/>.</t>
+	
+	<t>Finally, the string representation of the device
+	identity URN and of the MEID sub namespace is fully compatible with
+	the URN syntax.</t>
+	
+      </section>
+      
+      <section title="Assignment">
+	
+	<t>Assignment: The process for identifier
+	assignment is dependent on the used subtype, and documented in the
+	specific subsection under <xref target="subtypes"/>.</t>
+	
+	<t>Device identifiers are generally expected to be unique, barring
+	the accidental issue of multiple devices with the same
+	identifiers.</t>
+	
+	<t>This URN type SHOULD only be used for persistent identifiers,
+	such as hardware-based identifiers or cryptographic identifiers
+	based on keys intended for long-term usage.</t>
+	
+      </section>
+      
+      <section title="Security and Privacy">
+	
+	<t>Security and Privacy: As discussed in <xref target="sec"/>, care
+	must be taken to use device identifier-based identifiers due to
+	their nature as a long-term identifier that is often not
+	changeable. Leakage of these identifiers outside systems where their
+	use is justfied should be controlled.</t>
+	
+      </section>
+      
+      <section title="Interoperability">
+	
+	<t>Interoperability: There are no specific interoperability
+	concerns.</t>
+	
+      </section>
+      
+      <section title="Resolution">
+	
+	<t>Resolution: The device identities are not expected to be globally
+	resolvable. No identity resolution system is expected. Systems may
+	perform local matching of identities to previously seen identities
+	or configured information, however.</t>
+	
+      </section>
+      
+      <section title="Documentation">
+	
+	<t>See RFC NNNN (RFC Editor: Please replace NNNN by a reference to
+	the RFC number of this document).</t>
+	
+      </section>
+      
+      <section title="Additional Information">
+	
+	<t>See <xref target="intro"/> for a discussion of related name spaces.</t>
+	
+      </section>
+      
+      <section title="Revision Information">
+	
+	<t>Revision Information: This is the first version of this registration.</t>
+	
+      </section>
+      
+    </section>
+    
 <section anchor="subtypes" title="DEV URN Subtypes">
 
-<section anchor="mac" title="MAC Addresses">
+  <section anchor="mac" title="MAC Addresses">
 
 <t>DEV URNs of the "mac" subtype are based on the EUI-64 identifier
 <xref target="IEEE.EUI64"/> derived from a device with a built-in
@@ -458,7 +546,8 @@ the organisation device identifier type.</t>
   &RFC4627;
   &RFC5612; 
   &RFC7721; 
-
+  &RFC8259;
+  
   <reference anchor='W3C.REC-xml-19980210'
 	     target='http://www.w3.org/TR/1998/REC-xml-19980210'>
     <front>
@@ -493,6 +582,9 @@ the organisation device identifier type.</t>
 
 <section title="Changes from Previous Version">
 
+  <t>Version -01 of the WG draft converted the draft to use the new
+  URN registration template from <xref target="RFC8141"/>.</t>
+  
   <t>Version -00 of the WG draft renamed the file name and fixed the
   ABNF to correctly use "org:" rather than "dn:".</t>
   
