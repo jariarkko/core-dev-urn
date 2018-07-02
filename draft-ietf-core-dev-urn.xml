@@ -71,7 +71,7 @@
 
         <author initials="Z" surname="Shelby" fullname="Zach Shelby">
           <organization>
-             Sensinode
+             ARM
           </organization>
           <address>
             <postal>
@@ -81,7 +81,7 @@
              <country>FINLAND</country>
             </postal>
             <phone>+358407796297</phone>
-            <email>zach@sensinode.com</email>
+            <email>Zach.Shelby@arm.com</email>
           </address>
         </author>
 
@@ -206,10 +206,11 @@
 	object systems.<vspace blankLines="1"/>
 	
 	DEV URNs can be used in various ways in applications, software
-	systems, and network components, in tasks ranging from discovery (for
-	instance when discovering 1-wire network devices or detecting
-	MAC-addressable devices on a LAN) to intrusion detection systems and
-	and simple catalogues of system information.<vspace blankLines="1"/>
+	systems, and network components, in tasks ranging from
+	discovery (for instance when discovering 1-wire network
+	devices or detecting MAC-addressable devices on a LAN) to
+	intrusion detection systems and simple catalogues of system
+	information.<vspace blankLines="1"/>
 	
 	While it is possible to implement resolution systems for specific
 	applications or network locations, DEV URNs are typically not used in
