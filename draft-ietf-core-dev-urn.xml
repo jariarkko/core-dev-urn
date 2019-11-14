@@ -245,7 +245,7 @@
   identifier = 1*unreservednout
   componentpart = 1*( "_" identifier )
   unreservednout = ALPHA / DIGIT / "-" / "."
-  hexstring = 1*(hexdigit hexdigit)
+  hexstring = *(hexdigit hexdigit)
   hexdigit = DIGIT / "a" / "b" / "c" / "d" / "e" / "f"
   number = *1DIGIT
   ; RFC5234  defines ALPHA =  %x41-5A / %x61-7A
