@@ -635,7 +635,7 @@ the organisation device identifier type.</t>
 
   <t>The authors would like to thank Ari Keranen, Stephen Farrell,
   Christer Holmberg, Peter Saint-Andre, Wouter Cloetens, Jaime
-  Jimenez, and Ahmad Muhanna for interesting discussions in this
+  Jimenez, Joseph Knapp, and Ahmad Muhanna for interesting discussions in this
   problem space. We would also like to note prior documents that
   focused on specific device identifiers, such as <xref
   target="RFC7254"/> or <xref
