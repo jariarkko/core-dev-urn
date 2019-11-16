@@ -25,7 +25,7 @@
 ]>
 
 <rfc ipr="trust200902"
-     docName="draft-ietf-core-dev-urn-04"
+     docName="draft-ietf-core-dev-urn-03"
      category="info">
 
 <?rfc toc="yes"?> <?rfc symrefs="yes"?> <?rfc autobreaks="yes"?>
@@ -85,7 +85,7 @@
           </address>
         </author>
 
-<date month="July" year="2019" />
+<date month="October" year="2018" />
 
 <keyword>URN</keyword>
 <keyword>device identifier</keyword>
@@ -197,8 +197,9 @@
       <section title="Purpose">
 	
 	<t>Purpose: The DEV URNs identify devices with device-specific
-	identifiers such as network card hardware addresses. DEV URN
-	is global in scope.
+	identifiers such as network card hardware addresses. These URNs may be
+	used in any relevant networks that benefit from the ability to refer
+	to these identifiers in the form of URNs; DEV URN is global in scope.
 	<vspace blankLines="1"/>
 	
 	Some typical applications include equipment inventories and smart
@@ -248,21 +249,20 @@
   serial = identifier
   unreservednout = ALPHA / DIGIT / "_"
   componentpart = [ "_" component [ componentpart ]]
-  component = 1*(DIGIT / ALPHA)
+  component = *1(DIGIT / ALPHA)
   hexstring = hexbyte /
-              (hexbyte hexstring)
+              hexbyte hexstring
   hexbyte = hexdigit hexdigit
   hexdigit = DIGIT / hexletter
   hexletter = "a" / "b" / "c" / "d" / "e" / "f"
   number = *1DIGIT
-  DIGIT = &lt;Defined in RFC5234&gt;
-  ALPHA = &lt;Defined in RFC5234&gt;
           </artwork>
         </figure>
     
 	<t>The above Augmented Backus-Naur Form (ABNF) uses the DIGIT and
 	ALPHA rules defined in <xref target="RFC5234"/>, which are not
-	repeated here.</t>
+	repeated here. The rule for pct-encoding is defined in Section 2.1 of
+	<xref target="RFC3986"/>.</t>
 	
 	<t>The device identity namespace includes three subtypes (see
 	<xref target="subtypes"/>, and more may be defined in the future as
@@ -557,7 +557,7 @@ outside of the system that is intended to use the identifiers.</t>
   
   <reference
       anchor="IEEE.EUI64"
-      target="https://standards.ieee.org/content/dam/ieee-standards/standards/web/documents/tutorials/eui.pdf">
+      target="http://standards.ieee.org/db/oui/tutorials/EUI64.html">
     <front>
       <title>Guidelines For 64-bit Global Identifier (EUI-64)</title>
       <author>
@@ -725,9 +725,6 @@ outside of the system that is intended to use the identifiers.</t>
   so that the general format of the rest of the URN can employ the
   unreserved characters <xref target="RFC3986"/>.</t>
 
-  <t>Version -03 made several minor corrections to the ABNF as well as
-  some editorial corrections.</t>
-  
 </section>
 
 <section title="Acknowledgments">
