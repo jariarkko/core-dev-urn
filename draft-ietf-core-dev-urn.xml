@@ -233,25 +233,23 @@
 	ASCII characters and has a hierarchical structure as
 	follows:</t>
 
-	<figure>
-	  <artwork>
+    <figure>
+      <artwork>
   devurn = "urn:dev:" body componentpart
   body = macbody / owbody / orgbody / otherbody
   macbody = "mac:" hexstring
   owbody = "ow:" hexstring
-  orgbody = "org:" number ":" identifier
-  otherbody = subtype ":" identifier
+  orgbody = "org:" number ":" identifier *( ":"  identifier )
+  otherbody = subtype ":" identifier *( ":"  identifier )
   subtype = ALPHA *(DIGIT / ALPHA)
   identifier = 1*unreservednout
+  componentpart = 1*( "_" identifier )
   unreservednout = ALPHA / DIGIT / "-" / "."
-  componentpart = [ "_" component [ componentpart ]]
-  component = *1(DIGIT / ALPHA)
-  hexstring = hexbyte /
-              hexbyte hexstring
-  hexbyte = hexdigit hexdigit
-  hexdigit = DIGIT / hexletter
-  hexletter = "a" / "b" / "c" / "d" / "e" / "f"
+  hexstring = *(hexdigit hexdigit)
+  hexdigit = DIGIT / "a" / "b" / "c" / "d" / "e" / "f"
   number = *1DIGIT
+  ; RFC5234  defines ALPHA =  %x41-5A / %x61-7A
+  ; RFC5234  defines DIGIT   =  %x30-39
 	  </artwork>
 	</figure>
     
@@ -637,7 +635,7 @@ the organisation device identifier type.</t>
 
   <t>The authors would like to thank Ari Keranen, Stephen Farrell,
   Christer Holmberg, Peter Saint-Andre, Wouter Cloetens, Jaime
-  Jimenez, and Ahmad Muhanna for interesting discussions in this
+  Jimenez, Joseph Knapp, and Ahmad Muhanna for interesting discussions in this
   problem space. We would also like to note prior documents that
   focused on specific device identifiers, such as <xref
   target="RFC7254"/> or <xref
