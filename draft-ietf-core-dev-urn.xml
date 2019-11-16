@@ -232,32 +232,28 @@
 	ASCII characters and has a hierarchical structure as
 	follows:</t>
 
-        <figure>
-          <artwork>
+    <figure>
+      <artwork>
   devurn = "urn:dev:" body componentpart
   body = macbody / owbody / orgbody / osbody / opsbody / otherbody
   macbody = "mac:" hexstring
   owbody = "ow:" hexstring
-  orgbody = "org:" number "-" identifier
+  orgbody = "org:" number ":" identifier *( ":"  identifier )
   osbody = "os:" number "-" serial
   opsbody = "ops:" number "-" product "-" serial
-  otherbody = subtype ":" identifier
+  otherbody = subtype ":" identifier *( ":"  identifier )
   subtype = ALPHA *(DIGIT / ALPHA)
-  identifier = 1*unreservednout
+  identifier = 1*unreservednout 
   product = identifier
   serial = identifier
-  unreservednout = ALPHA / DIGIT / "_"
-  componentpart = [ "_" component [ componentpart ]]
-  component = 1*(DIGIT / ALPHA)
-  hexstring = hexbyte /
-              (hexbyte hexstring)
-  hexbyte = hexdigit hexdigit
-  hexdigit = DIGIT / hexletter
-  hexletter = "a" / "b" / "c" / "d" / "e" / "f"
+  componentpart = *( "_" identifier )
+  unreservednout = ALPHA / DIGIT / "-" / "."
+  hexstring = *(hexdigit hexdigit)
+  hexdigit = DIGIT / "a" / "b" / "c" / "d" / "e" / "f"
   number = *1DIGIT
-  DIGIT = &lt;Defined in RFC5234&gt;
-  ALPHA = &lt;Defined in RFC5234&gt;
-          </artwork>
+  ; RFC5234  defines ALPHA =  %x41-5A / %x61-7A
+  ; RFC5234  defines DIGIT   =  %x30-39
+        </artwork>
         </figure>
     
 	<t>The above Augmented Backus-Naur Form (ABNF) uses the DIGIT and
@@ -642,6 +638,12 @@ outside of the system that is intended to use the identifiers.</t>
 
 <section title="Changes from Previous Version">
 
+  <t>Version -04 of the WG draft rewrote parts of the ANBF to allow
+  for use cases for the component part that were not previously
+  covered: the syntax now allows "-" and "." in the component part as
+  well. The syntax was also extended to allow for extensibility by
+  adding additional ":" separated parts.</t>
+  
   <t>Version -03 of the WG draft removed some unnecessary references,
   updated some other references, removed pct-encoding to ensure the
   DEV URNs fit <xref target="RFC8428"/> Section 4.5.1 rules, and
@@ -734,7 +736,7 @@ outside of the system that is intended to use the identifiers.</t>
 
   <t>The authors would like to thank Ari Keranen, Stephen Farrell,
   Christer Holmberg, Peter Saint-Andre, Wouter Cloetens, Jaime
-  Jimenez, Padmakumar Subramani, Mert Ocak, Hannes Tschofenig, and
+  Jimenez, Joseph Knapp, Padmakumar Subramani, Mert Ocak, Hannes Tschofenig, and
   Ahmad Muhanna for interesting discussions in this problem space. We
   would also like to note prior documents that focused on specific
   device identifiers, such as <xref target="RFC7254"/> or <xref
