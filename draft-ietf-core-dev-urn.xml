@@ -249,7 +249,7 @@
   serial = identifier
   componentpart = *( "_" identifier )
   unreservednodash = ALPHA / DIGIT / "."
-  unreserved = unreserved / "-"
+  unreserved = unreservednodash / "-"
   hexstring = 1*(hexdigit hexdigit)
   hexdigit = DIGIT / "a" / "b" / "c" / "d" / "e" / "f"
   number = *1DIGIT
