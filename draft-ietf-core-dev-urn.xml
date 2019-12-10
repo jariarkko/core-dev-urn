@@ -85,7 +85,7 @@
           </address>
         </author>
 
-<date month="July" year="2019" />
+<date month="December" year="2019" />
 
 <keyword>URN</keyword>
 <keyword>device identifier</keyword>
@@ -238,27 +238,29 @@
   body = macbody / owbody / orgbody / osbody / opsbody / otherbody
   macbody = "mac:" hexstring
   owbody = "ow:" hexstring
-  orgbody = "org:" number ":" identifier *( ":"  identifier )
-  osbody = "os:" number "-" serial
-  opsbody = "ops:" number "-" product "-" serial
+  orgbody = "org:" number "-" identifier *( ":"  identifier )
+  osbody = "os:" number "-" serial *( ":"  identifier )
+  opsbody = "ops:" number "-" product "-" serial *( ":"  identifier )
   otherbody = subtype ":" identifier *( ":"  identifier )
   subtype = ALPHA *(DIGIT / ALPHA)
-  identifier = 1*unreservednout 
-  product = identifier
+  identifier = 1*unreserved
+  identifiernodash = 1*unreservednodash
+  product = identifiernodash
   serial = identifier
   componentpart = *( "_" identifier )
-  unreservednout = ALPHA / DIGIT / "-" / "."
-  hexstring = *(hexdigit hexdigit)
+  unreservednodash = ALPHA / DIGIT / "."
+  unreserved = unreserved / "-"
+  hexstring = 1*(hexdigit hexdigit)
   hexdigit = DIGIT / "a" / "b" / "c" / "d" / "e" / "f"
   number = *1DIGIT
-  ; RFC5234  defines ALPHA =  %x41-5A / %x61-7A
-  ; RFC5234  defines DIGIT   =  %x30-39
+  ALPHA =  %x41-5A / %x61-7A
+  DIGIT   =  %x30-39
         </artwork>
         </figure>
     
-	<t>The above Augmented Backus-Naur Form (ABNF) uses the DIGIT and
-	ALPHA rules defined in <xref target="RFC5234"/>, which are not
-	repeated here.</t>
+	<t>The above Augmented Backus-Naur Form (ABNF) copies the
+	DIGIT and ALPHA rules original defined in <xref
+	target="RFC5234"/>, exactly as defined there.</t>
 	
 	<t>The device identity namespace includes three subtypes (see
 	<xref target="subtypes"/>, and more may be defined in the future as
@@ -463,8 +465,10 @@ identifiers:
 
 <figure>
 <artwork>
-    urn:dev:mac:0024befffe804ff1            # The MAC address of
-                                            # Jari's laptop
+    urn:dev:mac:0024beffff804ff1            # The MAC address of
+                                            # Jari's laptop, for
+                                            # the MAC address
+                                            # 0024be804ff1
 
     urn:dev:ow:10e2073a01080063             # The 1-Wire temperature
                                             # sensor in Jari's
@@ -476,9 +480,17 @@ identifiers:
     urn:dev:ow:264437f5000000ed_temperature # The laundry sensor's
                                             # temperature part
 
-    urn:dev:org:32473-123456                # Device 123456 in
+    urn:dev:org:32473-foo                   # An organization-
+                                            # specific URN in
+                                            # the RFC 5612 example
+                                            # organisation, 32473.
+
+    urn:dev:op:32473-123456                 # Device 123456 in
                                             # the RFC 5612 example
                                             # organisation
+
+    urn:dev:op:32473-12-34-56               # A serial number with
+                                            # dashes in it
 
     urn:dev:ops:32473-Refrigerator-5002     # Refrigerator serial
                                             # number 5002 in the
@@ -640,9 +652,17 @@ outside of the system that is intended to use the identifiers.</t>
 
   <t>Version -04 of the WG draft rewrote parts of the ANBF to allow
   for use cases for the component part that were not previously
-  covered: the syntax now allows "-" and "." in the component part as
-  well. The syntax was also extended to allow for extensibility by
-  adding additional ":" separated parts.</t>
+  covered: the syntax now allows the character "." to appear, 
+  and serial numbers can have dashes in them.
+  The syntax was also extended to allow for extensibility by
+  adding additional ":" separated parts for the org, op, ops, and
+  other subtypes. The ABNF was changed to include directly the ALPHA
+  and DIGIT parts imported from RFC 5234, instead of just having a
+  verbal comment about it. (Note that the style in existing RFCs
+  differs on this.) Finally, the MAC example was corrected to use the
+  inserted value ffff instead of fffe, required by <xref
+  target="mac"/>, the org example was corrected, and the os example
+  was added.</t>
   
   <t>Version -03 of the WG draft removed some unnecessary references,
   updated some other references, removed pct-encoding to ensure the
