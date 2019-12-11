@@ -266,12 +266,16 @@
 	<xref target="subtypes"/>, and more may be defined in the future as
 	specified in <xref target="iana"/>.</t>
 	
-	<t>The optional components following the hexstring are strings
-	depicting individual aspects of a device. The specific strings and
-	their semantics are up to the designers of the device, but could be
-	used to refer to specific interfaces or functions within the
-	device.</t>
+	<t>The optional underscore-separated components following the
+	hexstring are strings depicting individual aspects of a
+	device. The specific strings and their semantics are up to the
+	designers of the device, but could be used to refer to
+	specific interfaces or functions within the device.</t>
 	
+        <t>With the exception of the MAC-address and 1-Wire DEV URNs,
+        each DEV URN may also contain optional colon-separated
+        identifiers. These are provided for extensibility.</t>
+
 	<t>There are no special character encoding rules or
 	considerations for comforming with the URN syntax, beyond
 	those applicable for URNs in general <xref target="RFC8141"/>,
@@ -415,27 +419,44 @@ with the manufacturers.</t>
   <t>Device identifiers that have only a meaning within an
   organisation can also be used to represent vendor-specific or
   experimental identifiers or identifiers designed for use within the
-  context of an organisation.  Organisations are identified by their
-  Private Enterprise Number (PEN) <xref target="RFC2578"/>.</t>
+  context of an organisation.</t>
+
+  <t>Organisations are identified by their Private Enterprise Number
+  (PEN) <xref target="RFC2578"/>. These numbers can be obtained from
+  IANA. Current PEN assignments can be viewed at
+  https://www.iana.org/assignments/enterprise-numbers/enterprise-numbers
+  and new assignemnts requested at
+  https://pen.iana.org/pen/PenApplication.page.</t>
+
 </section>
 
 <section anchor="os" title="Organization Serial Numbers">
 
-  <t>The "os" subtype specifies an
-  organization and a serial number. Organizations are identified by
-  their PEN.
+  <t>The "os" subtype specifies an organization and a serial
+  number. Organizations are identified by their PEN. As with the
+  organization-defined identifiers (<xref target="org"/>), PEN number
+  assignments are maintained by IANA, and assignments for new
+  organizations can be made easily.
 
   <list style="empty">
 
-    <t>Note: The DEV URN "os" subtype has originally been defined in
-    the LwM2M standard, but has been incorporated here to collect all
-    syntax associated with DEV URNs in one place. At the same time,
-    the syntax of this subtype was changed to avoid the possibility of
-    characters that are not allowed in SenML Name field (see <xref
-    target="RFC8428"/> Section 4.5.1).</t>
+    <t>Editor's Note (Please remove before publication): The DEV URN
+    "os" subtype has originally been defined in the LwM2M standard,
+    but has been incorporated here to collect all syntax associated
+    with DEV URNs in one place. At the same time, the syntax of this
+    subtype was changed to avoid the possibility of characters that
+    are not allowed in SenML Name field (see <xref target="RFC8428"/>
+    Section 4.5.1).</t>
 
   </list></t>
-  
+
+  <t>Organization serial number DEV URNs consist of the PEN number and
+  the serial number. As with other DEV URNs, for carrying additional
+  information and extensibility, optional colon-separated identifiers
+  and underscore-separated components may also be included. The serial
+  numbers themselves are defined by the organization, and this
+  specification does not specify how thy are allocated.</t>
+
 </section>
 
 <section anchor="ops" title="Organization Product and Serial Numbers">
@@ -444,16 +465,26 @@ with the manufacturers.</t>
   LwM2M standard, but has been incorporated here to collect all syntax
   associated with DEV URNs in one place. The "ops" subtype specifies
   an organization, product class, and a serial number. Organizations
-  are identified by their PEN.
+  are identified by their PEN. Again, as with the
+  organization-defined identifiers (<xref target="org"/>), PEN number
+  assignments are maintained by IANA.
 
   <list style="empty">
 
-    <t>Note: As with the "os" subtype, the "ops" subtype has
-    originally been defined in the LwM2M standard, and its format has
-    been slightly changed.</t>
+    <t>Editor's Note (Please remove before publication): As with the
+    "os" subtype, the "ops" subtype has originally been defined in the
+    LwM2M standard, and its format has been slightly changed.</t>
 
   </list></t>
   
+  <t>Organization product and serial number DEV URNs consist of the
+  PEN number, product class, and the serial number. As with other DEV
+  URNs, for carrying additional information and extensibility,
+  optional colon-separated identifiers and underscore-separated
+  components may also be included. Both the product class and serial
+  numbers themselves are defined by the organization, and this
+  specification does not specify how thy are allocated.</t>
+
 </section>
 
 </section>
@@ -652,17 +683,18 @@ outside of the system that is intended to use the identifiers.</t>
 
   <t>Version -04 of the WG draft rewrote parts of the ANBF to allow
   for use cases for the component part that were not previously
-  covered: the syntax now allows the character "." to appear, 
-  and serial numbers can have dashes in them.
-  The syntax was also extended to allow for extensibility by
-  adding additional ":" separated parts for the org, op, ops, and
-  other subtypes. The ABNF was changed to include directly the ALPHA
-  and DIGIT parts imported from RFC 5234, instead of just having a
-  verbal comment about it. (Note that the style in existing RFCs
-  differs on this.) Finally, the MAC example was corrected to use the
-  inserted value ffff instead of fffe, required by <xref
-  target="mac"/>, the org example was corrected, and the os example
-  was added.</t>
+  covered: the syntax now allows the character "." to appear, and
+  serial numbers can have dashes in them.  The syntax was also
+  extended to allow for extensibility by adding additional ":"
+  separated parts for the org, op, ops, and other subtypes. The ABNF
+  was changed to include directly the ALPHA and DIGIT parts imported
+  from RFC 5234, instead of just having a verbal comment about
+  it. (Note that the style in existing RFCs differs on this.) The MAC
+  example was corrected to use the inserted value ffff instead of
+  fffe, required by <xref target="mac"/>, the org example was
+  corrected, and the os example was added. Finally, the allocation of
+  PEN numbers and the use of product classes and serial numbers was
+  better explained.</t>
   
   <t>Version -03 of the WG draft removed some unnecessary references,
   updated some other references, removed pct-encoding to ensure the
