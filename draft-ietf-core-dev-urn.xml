@@ -252,7 +252,7 @@
   unreserved = unreservednodash / "-"
   hexstring = 1*(hexdigit hexdigit)
   hexdigit = DIGIT / "a" / "b" / "c" / "d" / "e" / "f"
-  number = *1DIGIT
+  number = 1*DIGIT
   ALPHA =  %x41-5A / %x61-7A
   DIGIT   =  %x30-39
         </artwork>
@@ -516,17 +516,20 @@ identifiers:
                                             # the RFC 5612 example
                                             # organisation, 32473.
 
-    urn:dev:op:32473-123456                 # Device 123456 in
+    urn:dev:os:32473-123456                 # Device 123456 in
                                             # the RFC 5612 example
                                             # organisation
 
-    urn:dev:op:32473-12-34-56               # A serial number with
+    urn:dev:os:32473-12-34-56               # A serial number with
                                             # dashes in it
 
     urn:dev:ops:32473-Refrigerator-5002     # Refrigerator serial
                                             # number 5002 in the
                                             # RFC 5612 example
                                             # organisation
+
+    urn:dev:newsubtype:example-1-2-3_comp   # A yet-to-be-defined
+                                            # subtype
 </artwork>
 </figure>
 </t>
@@ -692,9 +695,9 @@ outside of the system that is intended to use the identifiers.</t>
   it. (Note that the style in existing RFCs differs on this.) The MAC
   example was corrected to use the inserted value ffff instead of
   fffe, required by <xref target="mac"/>, the org example was
-  corrected, and the os example was added. Finally, the allocation of
-  PEN numbers and the use of product classes and serial numbers was
-  better explained.</t>
+  corrected, the os: examples and otherbody examples were
+  added. Finally, the allocation of PEN numbers and the use of product
+  classes and serial numbers was better explained.</t>
   
   <t>Version -03 of the WG draft removed some unnecessary references,
   updated some other references, removed pct-encoding to ensure the
