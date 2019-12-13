@@ -568,8 +568,8 @@ outside of the system that is intended to use the identifiers.</t>
   <t>This document requests the registration of a new URN namespace
   for "DEV", as described in <xref target="devurn"/>.</t>
 
-  <t>Additional subtypes for DEV URNs can be defined through IETF
-  Review or IESG Approval <xref target="RFC5226"/>.</t>
+  <t>Additional subtypes for DEV URNs can be defined through Specification Required
+  or IESG Approval <xref target="RFC5226"/>.</t>
 
   <t>Such allocations are appropriate when there is a new namespace
   of some type of device identifiers, defined in stable fashion and with
@@ -684,19 +684,32 @@ outside of the system that is intended to use the identifiers.</t>
 
 <section title="Changes from Previous Version">
 
-  <t>Version -04 of the WG draft rewrote parts of the ANBF to allow
-  for use cases for the component part that were not previously
+  <t>Version -04 of the WG draft cleaned up the ABNF:
+
+  <list style="symbols">
+
+  <t>Parts of the ANBF now allow for use cases for the component part that were not previously
   covered: the syntax now allows the character "." to appear, and
-  serial numbers can have dashes in them.  The syntax was also
+  serial numbers can have dashes in them.</t>
+
+  <t>The syntax was also
   extended to allow for extensibility by adding additional ":"
-  separated parts for the org, op, ops, and other subtypes. The ABNF
+  separated parts for the org, op, ops, and other subtypes.</t>
+
+  <t>The ABNF
   was changed to include directly the ALPHA and DIGIT parts imported
   from RFC 5234, instead of just having a verbal comment about
-  it. (Note that the style in existing RFCs differs on this.) The MAC
-  example was corrected to use the inserted value ffff instead of
-  fffe, required by <xref target="mac"/>, the org example was
-  corrected, the os: examples and otherbody examples were
-  added. Finally, the allocation of PEN numbers and the use of product
+  it. (Note that the style in existing RFCs differs on this.)</t>
+
+  </list></t>
+
+  <t>In addition, in -04 the MAC example was corrected to use the
+  inserted value ffff instead of fffe, required by <xref
+  target="mac"/>, the org example was corrected, the os: examples and
+  otherbody examples were added. The IANA rules for allocating new
+  subtypes was slightly relaxed in order to cover for new subtype
+  cases that are brought up regularly, and often not from inside the
+  IETF. Finally, the allocation of PEN numbers and the use of product
   classes and serial numbers was better explained.</t>
   
   <t>Version -03 of the WG draft removed some unnecessary references,
