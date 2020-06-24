@@ -2,30 +2,31 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
-<!ENTITY RFC8141 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8141.xml">
 <!ENTITY RFC2578 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2578.xml">
-<!ENTITY RFC3406 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3406.xml">
 <!ENTITY RFC3986 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3986.xml">
-<!ENTITY RFC5226 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5226.xml">
 <!ENTITY RFC5234 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5234.xml">
-<!ENTITY RFC2616 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2616.xml">
 <!ENTITY RFC3261 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3261.xml">
 <!ENTITY RFC3971 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3971.xml">
 <!ENTITY RFC3972 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3972.xml">
 <!ENTITY RFC4122 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4122.xml">
 <!ENTITY RFC4627 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4627.xml">
 <!ENTITY RFC5612 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5612.xml">
-<!ENTITY RFC7721 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7721.xml">
+<!ENTITY RFC6920 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6920.xml">
+<!ENTITY RFC7230 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7230.xml">
 <!ENTITY RFC7252 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7252.xml">
 <!ENTITY RFC7254 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7254.xml">
+<!ENTITY RFC7540 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7540.xml">
+<!ENTITY RFC7721 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7721.xml">
+<!ENTITY RFC8126 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8126.xml">
+<!ENTITY RFC8141 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8141.xml">
+<!ENTITY RFC8174 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8174.xml">
 <!ENTITY RFC8259 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8259.xml">
-<!ENTITY RFC6920 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6920.xml">
 <!ENTITY RFC8428 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8428.xml">
-<!ENTITY I-D.atarius-dispatch-meid-urn SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.atarius-dispatch-meid-urn.xml">
+<!ENTITY RFC8464 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8464.xml">
 ]>
 
 <rfc ipr="trust200902"
-     docName="draft-ietf-core-dev-urn-04"
+     docName="draft-ietf-core-dev-urn-05"
      category="info">
 
 <?rfc toc="yes"?> <?rfc symrefs="yes"?> <?rfc autobreaks="yes"?>
@@ -85,7 +86,7 @@
           </address>
         </author>
 
-<date month="December" year="2019" />
+<date month="June" year="2020" />
 
 <keyword>URN</keyword>
 <keyword>device identifier</keyword>
@@ -112,14 +113,14 @@
   <section anchor="intro" title="Introduction">
     
     <t>This memo describes a new Uniform Resource Name (URN) <xref
-    target="RFC8141"/> <xref target="RFC3406"/> namespace for hardware
+    target="RFC8141"/> namespace for hardware
     device identifiers. A general representation of device identity
     can be useful in many applications, such as in sensor data streams
     and storage, or equipment inventories <xref target="RFC7252"/>,
     <xref target="RFC8428"/>. A URN-based representation
     can be easily passed along in any application that needs the
     information, as it fits in protocols mechanisms that are designed
-    to carry URNs <xref target="RFC2616"/>, <xref target="RFC3261"/>,
+    to carry URNs <xref target="RFC7230"/>, <xref target="RFC7540"/>, <xref target="RFC3261"/>,
     <xref target="RFC7252"/>. Finally, URNs can also be easily carried
     and stored in formats such as XML <xref
     target="W3C.REC-xml-19980210"/> or JSON <xref
@@ -134,7 +135,7 @@
     target="RFC6920"/> defines cryptographic identifiers, <xref
     target="RFC7254"/> defines International Mobile station Equipment
     Identity (IMEI) identifiers for use with 3GPP cellular systems,
-    and <xref target="I-D.atarius-dispatch-meid-urn"/> defines Mobile
+    and <xref target="RFC8464"/> defines Mobile
     Equipment Identity (MEID) identifiers for use with 3GPP2 cellular
     systems. Those URN types should be employed when such identities
     are transported; this memo does not redefine these identifiers in
@@ -173,9 +174,11 @@
 
   <section anchor="kwd" title='Requirements language'>
     
-    <t>In this document, the key words "MAY", "MUST, "MUST NOT", "OPTIONAL",
-    "RECOMMENDED", "SHOULD", and "SHOULD NOT", are to be interpreted as
-    described in <xref target='RFC2119' />.</t>
+    <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+    "OPTIONAL" in this document are to be interpreted as described in BCP
+    14 <xref target="RFC2119"/> <xref target="RFC8174"/> when, and only
+    when, they appear in all capitals, as shown here.</t>
     
   </section>
   
@@ -185,10 +188,7 @@
       
       <t>Version: 1</t>
       
-      <t>Date: 2018-03-19</t>
-      
-      <t>Registration Information: This is the first registration of
-      this namespace, 2018-03-19.</t>
+      <t>Date: 2020-06-24</t>
       
       <t>Registrant: IETF and the CORE working group. Should the working
       group cease to exist, discussion should be directed to the general
@@ -220,7 +220,7 @@
 	URNs for this purpose convenient.<vspace blankLines="1"/>
 	
 	The DEV URN name space complements existing name spaces such as those
-	involving IMEI or UUID identifiers. DEV URNs are expeced to be a part
+	involving IMEI or UUID identifiers. DEV URNs are expected to be a part
 	of the IETF-provided basic URN types, covering identifiers that have
 	previously not been possible to use in URNs.</t>
 	
@@ -283,11 +283,14 @@
 	<xref target="RFC8259"/> or SenML <xref
 	target="RFC8428"/>).</t>
 	
-	<t>The lexical equivalence of the DEV URNs is defined as an exact and
-	case sensitive string match.  Note that the two subtypes defined in
-	this document use only lower case letters, however. Future types might
-	use identifiers that require other encodings that require a more
-	full-blown character set (such as BASE64), however.</t>
+	<t>The lexical equivalence of the DEV URNs is defined as an
+	exact and case sensitive string match. Note that the subtypes
+	defined in this document do not require the specific case,
+	however. Future types might use identifiers that require other
+	encodings that require a more full-blown character set (such
+	as BASE64). For equivalance checks, it is RECOMMENDED that
+	lower case letters are used throughout by implementations
+	unless there is a reason otherwise.</t>
 	
 	<t>DEV URNs do not use r-, q-, or f-components.</t>
 	
@@ -322,7 +325,7 @@
 	must be taken to use device identifier-based identifiers due to
 	their nature as a long-term identifier that is often not
 	changeable. Leakage of these identifiers outside systems where their
-	use is justfied should be controlled.</t>
+	use is justified should be controlled.</t>
 	
       </section>
       
@@ -428,6 +431,9 @@ with the manufacturers.</t>
   and new assignemnts requested at
   https://pen.iana.org/pen/PenApplication.page.</t>
 
+  <t>When included in an "org" DEV URN, the number MUST NOT be padded
+  with extra leading zeroes.</t>
+  
 </section>
 
 <section anchor="os" title="Organization Serial Numbers">
@@ -448,6 +454,11 @@ with the manufacturers.</t>
     are not allowed in SenML Name field (see <xref target="RFC8428"/>
     Section 4.5.1).</t>
 
+  <t>When included in an "os" DEV URN, the PEN number MUST NOT be padded
+  with extra leading zeroes. Organizations are also encouraged to
+  select serial number formats that avoid possibility for ambiquity,
+  in the form of leading zeroes or otherwise.</t>
+  
   </list></t>
 
   <t>Organization serial number DEV URNs consist of the PEN number and
@@ -455,7 +466,7 @@ with the manufacturers.</t>
   information and extensibility, optional colon-separated identifiers
   and underscore-separated components may also be included. The serial
   numbers themselves are defined by the organization, and this
-  specification does not specify how thy are allocated.</t>
+  specification does not specify how they are allocated.</t>
 
 </section>
 
@@ -485,6 +496,11 @@ with the manufacturers.</t>
   numbers themselves are defined by the organization, and this
   specification does not specify how thy are allocated.</t>
 
+  <t>When included in an "ops" DEV URN, the PEN number MUST NOT be
+  padded with extra leading zeroes. Organizations are also encouraged
+  to select product and serial number formats that avoid possibility
+  for ambiquity.</t>
+  
 </section>
 
 </section>
@@ -496,10 +512,16 @@ identifiers:
 
 <figure>
 <artwork>
-    urn:dev:mac:0024beffff804ff1            # The MAC address of
-                                            # Jari's laptop, for
-                                            # the MAC address
-                                            # 0024be804ff1
+    urn:dev:mac:0024beffff804ff1            # The MAC-48 address of
+                                            # 0024be804ff1, converted
+                                            # to EUI-64 format
+
+    urn:dev:mac:0024befffe804ff1            # The EUI-48 address of
+                                            # 0024be804ff1, converted
+                                            # to EUI-64 format
+
+    urn:dev:mac:acde48234567019f            # The EUI-64 address of
+                                            # acde48234567019f
 
     urn:dev:ow:10e2073a01080063             # The 1-Wire temperature
                                             # sensor in Jari's
@@ -536,7 +558,7 @@ identifiers:
 
 </section>
 
-<section anchor="sec" title="Security Considerations">
+<section anchor="sec" title="Security and Privacy Considerations">
 
 <t>On most devices, the user can display device identifiers. Depending
 on circumstances, device identifiers may or may not be modified or
@@ -558,7 +580,7 @@ may enable correlating information about a specific device over a long
 period of time, location tracking, and device specific vulnerability
 exploitation <xref target="RFC7721"/>. Also, usually there is no easy
 way to change the identifier. Therefore these identifiers need to be
-used with care and especially care should be taken avoid leaking them
+used with care and especially care should be taken to avoid leaking them
 outside of the system that is intended to use the identifiers.</t>
 
 </section>
@@ -569,7 +591,7 @@ outside of the system that is intended to use the identifiers.</t>
   for "DEV", as described in <xref target="devurn"/>.</t>
 
   <t>Additional subtypes for DEV URNs can be defined through Specification Required
-  or IESG Approval <xref target="RFC5226"/>.</t>
+  or IESG Approval <xref target="RFC8126"/>.</t>
 
   <t>Such allocations are appropriate when there is a new namespace
   of some type of device identifiers, defined in stable fashion and with
@@ -577,7 +599,7 @@ outside of the system that is intended to use the identifiers.</t>
 
   <t>Note that the organisation (<xref target="org"/>) device
   identifiers can also be used in some cases, at least as a temporary
-  measure. It is preferrable, however, that long-term usage of a
+  measure. It is preferable, however, that long-term usage of a
   broadly employed device identifier be registered with IETF rather
   than used through the organisation device identifier type.</t>
   
@@ -590,12 +612,12 @@ outside of the system that is intended to use the identifiers.</t>
 <references title="Normative References">
   
   &RFC2119;
-  &RFC8141;
   &RFC2578;
-  &RFC3406;
   &RFC3986;
-  &RFC5226;
   &RFC5234;
+  &RFC8126; 
+  &RFC8141; 
+  &RFC8174; 
   
   <reference
       anchor="IEEE.EUI64"
@@ -627,10 +649,11 @@ outside of the system that is intended to use the identifiers.</t>
 
 <references title="Informative References">
 
-  &RFC2616;
-  &RFC3261;
+  &RFC3261; 
   &RFC4122;
   &RFC4627;
+  &RFC7230; 
+  &RFC7540; 
   &RFC7721; 
   &RFC8259;
   
@@ -678,12 +701,18 @@ outside of the system that is intended to use the identifiers.</t>
   &RFC8428;
   &RFC6920;
   &RFC7254;
-  &I-D.atarius-dispatch-meid-urn;
+  &RFC8464;
 
 </references>
 
 <section title="Changes from Previous Version">
 
+  <t>Version -05 of the WG draft made some updates based on WGLC
+  input: examples for MAC-48 and EUI-48, clarification with regards to
+  leading zeroes, new recommendation with the use of lower-case
+  letters to avoid comparison problems, small update of the RFC 8141
+  template usage, reference updates, and editorial corrections.</t>
+  
   <t>Version -04 of the WG draft cleaned up the ABNF:
 
   <list style="symbols">
@@ -804,11 +833,13 @@ outside of the system that is intended to use the identifiers.</t>
 
   <t>The authors would like to thank Ari Keranen, Stephen Farrell,
   Christer Holmberg, Peter Saint-Andre, Wouter Cloetens, Jaime
-  Jimenez, Joseph Knapp, Padmakumar Subramani, Mert Ocak, Hannes Tschofenig, and
+  Jimenez, Joseph Knapp, Padmakumar Subramani, Mert Ocak, Hannes
+  Tschofenig, Jim Schaad, Thomas Fossati, Carsten Bormann, Marco
+  Tiloca, and
   Ahmad Muhanna for interesting discussions in this problem space. We
   would also like to note prior documents that focused on specific
   device identifiers, such as <xref target="RFC7254"/> or <xref
-  target="I-D.atarius-dispatch-meid-urn"/>.</t>
+  target="RFC8464"/>.</t>
 
 </section>
 
