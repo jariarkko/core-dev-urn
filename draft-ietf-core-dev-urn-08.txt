@@ -5,10 +5,10 @@
 Network Working Group                                           J. Arkko
 Internet-Draft                                                  Ericsson
 Intended status: Informational                               C. Jennings
-Expires: January 2, 2021                                           Cisco
+Expires: May 6, 2021                                               Cisco
                                                                Z. Shelby
                                                                      ARM
-                                                               July 2020
+                                                        November 2, 2020
 
 
              Uniform Resource Names for Device Identifiers
@@ -38,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 2, 2021.
+   This Internet-Draft will expire on May 6, 2021.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Arkko, et al.            Expires January 2, 2021                [Page 1]
+Arkko, et al.              Expires May 6, 2021                  [Page 1]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    to this document.  Code Components extracted from this document must
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Arkko, et al.            Expires January 2, 2021                [Page 2]
+Arkko, et al.              Expires May 6, 2021                  [Page 2]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    [RFC3261], [RFC7252].  Finally, URNs can also be easily carried and
@@ -165,9 +165,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021                [Page 3]
+Arkko, et al.              Expires May 6, 2021                  [Page 3]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    14 [RFC2119] [RFC8174] when, and only when, they appear in all
@@ -221,9 +221,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021                [Page 4]
+Arkko, et al.              Expires May 6, 2021                  [Page 4]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
      devurn = "urn:dev:" body componentpart
@@ -277,9 +277,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021                [Page 5]
+Arkko, et al.              Expires May 6, 2021                  [Page 5]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    The string representation of the device identity URN and of the MEID
@@ -333,9 +333,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021                [Page 6]
+Arkko, et al.              Expires May 6, 2021                  [Page 6]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
 3.4.  Security and Privacy
@@ -389,9 +389,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021                [Page 7]
+Arkko, et al.              Expires May 6, 2021                  [Page 7]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    OUI of the Ethernet address (the first three octets) becomes the
@@ -445,9 +445,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021                [Page 8]
+Arkko, et al.              Expires May 6, 2021                  [Page 8]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
 4.4.  Organization Serial Numbers
@@ -501,9 +501,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021                [Page 9]
+Arkko, et al.              Expires May 6, 2021                  [Page 9]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    When included in an "ops" DEV URN, the PEN number MUST NOT be padded
@@ -557,9 +557,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021               [Page 10]
+Arkko, et al.              Expires May 6, 2021                 [Page 10]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
        urn:dev:mac:0024beffff804ff1            # The MAC-48 address of
@@ -613,9 +613,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021               [Page 11]
+Arkko, et al.              Expires May 6, 2021                 [Page 11]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    become mutable as a part of implementing the DEV URN type.  More
@@ -669,9 +669,9 @@ ops      Organization Product and Serial Numbers  (THIS RFC) Section 4.5
 
 
 
-Arkko, et al.            Expires January 2, 2021               [Page 12]
+Arkko, et al.              Expires May 6, 2021                 [Page 12]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
 8.  References
@@ -725,9 +725,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021               [Page 13]
+Arkko, et al.              Expires May 6, 2021                 [Page 13]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    [OW]       IEEE, "Overview of 1-Wire(R) Technology and Its Use",
@@ -781,9 +781,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021               [Page 14]
+Arkko, et al.              Expires May 6, 2021                 [Page 14]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    [RFC7252]  Shelby, Z., Hartke, K., and C. Bormann, "The Constrained
@@ -837,9 +837,9 @@ Appendix A.  Changes from Previous Version
 
 
 
-Arkko, et al.            Expires January 2, 2021               [Page 15]
+Arkko, et al.              Expires May 6, 2021                 [Page 15]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    Version -07 of the WG draft took into account Carsten Bormann's
@@ -893,9 +893,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021               [Page 16]
+Arkko, et al.              Expires May 6, 2021                 [Page 16]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    o  The syntax for the "org:" changes to use "-" rather than ":"
@@ -949,9 +949,9 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021               [Page 17]
+Arkko, et al.              Expires May 6, 2021                 [Page 17]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    Version -04 is a refresh, as the need and interest for this
@@ -1005,9 +1005,9 @@ Authors' Addresses
 
 
 
-Arkko, et al.            Expires January 2, 2021               [Page 18]
+Arkko, et al.              Expires May 6, 2021                 [Page 18]
 
-Internet-Draft                   DEV URN                       July 2020
+Internet-Draft                   DEV URN                   November 2020
 
 
    Zach Shelby
@@ -1061,4 +1061,4 @@ Internet-Draft                   DEV URN                       July 2020
 
 
 
-Arkko, et al.            Expires January 2, 2021               [Page 19]
+Arkko, et al.              Expires May 6, 2021                 [Page 19]
